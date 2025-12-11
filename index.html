@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: https://app.livlog.xyz; connect-src 'self' https://app.livlog.xyz;">
+    <title>星LOG</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="app-container" style="justify-content: center">
+      <div class="glass-card" style="text-align: center; padding: 40px 20px">
+        <h1>星LOG</h1>
+        <p style="margin-bottom: 30px">
+          あなたの場所から見える<br />星空を見つけよう
+        </p>
+        <a href="setting.html" class="btn">はじめる</a>
+      </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script>
+      // Optional: If settings exist, maybe change button text or link
+      if (localStorage.getItem("starlog_birth")) {
+        document.querySelector(".btn").href = "home.html";
+        document.querySelector(".btn").textContent = "ホームへ";
+
+        // Add a secondary button for settings
+        const container = document.querySelector(".glass-card");
+        const settingsBtn = document.createElement("a");
+        settingsBtn.href = "setting.html";
+        settingsBtn.className = "btn btn-primary";
+        settingsBtn.style.marginTop = "10px";
+        settingsBtn.style.background = "transparent";
+        settingsBtn.style.border = "1px solid #fff";
+        settingsBtn.textContent = "設定を変更";
+        container.appendChild(settingsBtn);
+      }
+    </script>
+  </body>
+</html>

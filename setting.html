@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: https://app.livlog.xyz; connect-src 'self' https://app.livlog.xyz;">
+    <title>設定 - 星LOG</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="app-container" style="justify-content: center;">
+        <div class="glass-card">
+            <h2>プロフィール設定</h2>
+            <p>あなたの星座と、観測地点を設定します。</p>
+            
+            <div style="margin-top: 20px;">
+                <label for="birthDate">生年月日</label>
+                <input type="date" id="birthDate">
+                
+                <label for="locationSelect">居住地（観測地点）</label>
+                <select id="locationSelect">
+                    <option value="" disabled selected>選択してください</option>
+                    <option value="北海道">北海道</option>
+                    <option value="福島">福島</option>
+                    <option value="東京">東京</option>
+                    <option value="石川">石川</option>
+                    <option value="愛知">愛知</option>
+                    <option value="大阪">大阪</option>
+                    <option value="広島">広島</option>
+                    <option value="長崎">長崎</option>
+                    <option value="沖縄">沖縄</option>
+                </select>
+
+                <label for="themeSelect">背景テーマ（デバッグ用）</label>
+                <select id="themeSelect">
+                    <option value="realtime" selected>リアルタイム (時間連動)</option>
+                    <option value="theme-dawn">夜明け (Dawn)</option>
+                    <option value="theme-morning">朝 (Morning)</option>
+                    <option value="theme-day">昼 (Day)</option>
+                    <option value="theme-sunset">夕方 (Sunset)</option>
+                    <option value="theme-evening">夜 (Evening)</option>
+                    <option value="theme-midnight">深夜 (Midnight)</option>
+                </select>
+                
+                <button id="saveBtn" class="btn" style="margin-top: 20px;">保存して次へ</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="index.html" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem;">戻る</a>
+        </div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+:root {
+  --bg-gradient: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  --text-color: #fff;
+  --accent-color: #ffd700;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* No scroll */
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 1s ease;
+}
+
+/* Themes */
+body.theme-dawn {
+  --bg-gradient: linear-gradient(to bottom, #451e3e, #854442, #f49f1c);
+}
+body.theme-morning {
+  --bg-gradient: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
+  --text-color: #333;
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.6);
+}
+body.theme-day {
+  --bg-gradient: linear-gradient(to bottom, #00c6ff, #0072ff);
+}
+body.theme-sunset {
+  --bg-gradient: linear-gradient(to bottom, #2b32b2, #1488cc, #ffb347, #ffcc33);
+}
+body.theme-evening {
+  --bg-gradient: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+body.theme-midnight {
+  --bg-gradient: linear-gradient(to bottom, #000000, #434343);
+}
+
+/* Container */
+.app-container {
+  width: 100%;
+  height: 100%;
+  max-width: 480px; /* Mobile width limit */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+}
+
+p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  color: #2c3e50;
+}
+
+/* Forms */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Stars Background Effect */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      #eee,
+      rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.6;
+}
+
+/* Home Page Specifics */
+.info-panel {
+  flex: 1;
+  overflow-y: auto; /* Allow scrolling within the panel if content is long */
+  scrollbar-width: none; /* Firefox */
+}
+.info-panel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.zodiac-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Carousel/Slider for multiple items if needed */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+}
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+.carousel-item {
+  min-width: 80%;
+  scroll-snap-align: center;
+}
+
+/* Popup Overlay */
+#popupOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+#popupContentWrapper {
+    background: rgba(255, 255, 255, 0.9);
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 16px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #333;
+    position: relative;
+}
+
+#popupCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+#popupInner h3 {
+    color: #333;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+#popupInner img {
+    max-width: 150px; /* Smaller image */
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.popup-content-flex {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.popup-text {
+    flex: 1;
+}
