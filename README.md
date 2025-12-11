@@ -1,0 +1,1 @@
+# yamangu.github.io
